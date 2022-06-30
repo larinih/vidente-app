@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import {Button, ButtonTitle} from './style';
 
 import { 
   Container,
@@ -14,9 +15,12 @@ import { RootStackParamList } from '../../navigation'
 import ConfigButton from '../../components/ConfigButtom'
 import { TouchableOpacity } from 'react-native'
 
+
+
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>
 
 const Home = ({ navigation }: Props) => {
+  
   const [nextForecasts, setNextForecasts] = useState<Forecast[]>([])
   const [currentForecast, setCurrentForecast] = useState<Forecast>({
     description: '',
@@ -56,10 +60,9 @@ const Home = ({ navigation }: Props) => {
   }, [])
 
   return (
+   
     <Container>
-     <ConfigButton>
-    
-       </ConfigButton>
+
       <Resume
         cityName='Aquidauana'
         currentTemperature={currentForecast.temperature}
@@ -73,10 +76,19 @@ const Home = ({ navigation }: Props) => {
          () => navigation.push('NextForecasts', {nextForecasts})
        }>
         <NextForecastsArea>
+          <ConfigButton></ConfigButton>
           <NextForecastsText>Próximas Temperaturas</NextForecastsText>
         </NextForecastsArea>
        </NextForecastsButton>
+    <><Button>
+        <ButtonTitle>Mudar Tema</ButtonTitle>
+      </Button></>
+      
+    
     </Container>
+
+    
+    
   )
 }
 

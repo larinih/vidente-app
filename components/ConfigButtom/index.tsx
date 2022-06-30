@@ -15,3 +15,4 @@ const ConfigButton = ({ onPress }: Props) => {
 }
 
 export default ConfigButton
+
